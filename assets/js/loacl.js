@@ -1,6 +1,4 @@
- function loadPage(){ 
-  window.location.href='thankyou.html'
- }
+ 
   
 document.addEventListener("DOMContentLoaded", function() {
     // Mapping of Car Brands to their respective Models
