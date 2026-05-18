@@ -1,4 +1,4 @@
-<!doctype html>
+<!-- <!doctype html>
 <html class="no-js" lang="en">
   <head>
     <!-- meta data -->
@@ -809,4 +809,696 @@
 <!--Custom JS-->
 <script src="assets/js/custom.js"></script>
 </body>
-</html>
+</html> -->
+
+
+
+
+
+
+
+//------------------------------------------------------------------------------------
+
+
+
+<!-- 
+  WORDPRESS USAGE INSTRUCTIONS:
+  1. Install a plugin that allows raw HTML in pages: "Insert Headers and Footers" OR use a Custom HTML block in Gutenberg.
+  2. Paste this ENTIRE code into a "Custom HTML" block in your WordPress page editor.
+  3. Do NOT use a Text widget or Classic Editor — it may strip the <script> tags.
+  4. The form submits directly to Zoho CRM — no WordPress processing involved.
+-->
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<style>
+#bms-form-wrap *, #bms-form-wrap *::before, #bms-form-wrap *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+#bms-form-wrap {
+  --bg: #f5f3ef;
+  --card: #ffffff;
+  --primary: #1a3a2e;
+  --accent: #4c9b6f;
+  --accent-light: #e8f5ee;
+  --text: #1e2a24;
+  --muted: #6b7f74;
+  --border: #dde5e0;
+  --error: #c0392b;
+  --error-bg: #fdf0ee;
+  --radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+#bms-form-wrap .form-card {
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: 0 4px 40px rgba(26,58,46,0.10);
+  overflow: hidden;
+}
+
+#bms-form-wrap .form-header {
+  background: var(--primary);
+  padding: 36px 40px 28px;
+  position: relative;
+}
+
+#bms-form-wrap .form-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0; right: 0;
+  height: 18px;
+  background: var(--card);
+  border-radius: 18px 18px 0 0;
+}
+
+#bms-form-wrap .form-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  margin: 0;
+}
+
+#bms-form-wrap .form-header p {
+  color: rgba(255,255,255,0.6);
+  font-size: 13.5px;
+  margin-top: 6px;
+}
+
+#bms-form-wrap form {
+  padding: 28px 40px 40px;
+}
+
+#bms-form-wrap .section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 28px 0 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#bms-form-wrap .section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+#bms-form-wrap .row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+#bms-form-wrap .bms-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 14px;
+}
+
+#bms-form-wrap .bms-field.bms-hidden {
+  display: none !important;
+}
+
+#bms-form-wrap label,
+#bms-form-wrap label span,
+#bms-form-wrap .bms-field > label {
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  color: #6b7f74 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  margin: 0 0 4px 0 !important;
+  padding: 0 !important;
+  line-height: 1.4 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+  float: none !important;
+  width: auto !important;
+  height: auto !important;
+  clip: auto !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  background: none !important;
+  border: none !important;
+  text-indent: 0 !important;
+  letter-spacing: normal !important;
+}
+
+#bms-form-wrap label .req {
+  color: #c0392b !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+
+#bms-form-wrap input[type=text],
+#bms-form-wrap input[type=email],
+#bms-form-wrap select {
+  width: 100% !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  padding: 10px 14px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  color: var(--text) !important;
+  background: #fff !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  box-shadow: none !important;
+  float: none !important;
+  max-width: 100% !important;
+  resize: vertical;
+}
+
+#bms-form-wrap select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7f74' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  padding-right: 36px !important;
+  cursor: pointer;
+}
+
+#bms-form-wrap select[multiple] {
+  background-image: none !important;
+  padding-right: 14px !important;
+  height: auto !important;
+  min-height: 130px;
+}
+
+#bms-form-wrap input:focus,
+#bms-form-wrap select:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 3px rgba(76,155,111,0.12) !important;
+}
+
+#bms-form-wrap input.bms-invalid,
+#bms-form-wrap select.bms-invalid {
+  border-color: var(--error) !important;
+  background-color: var(--error-bg) !important;
+}
+
+#bms-form-wrap .bms-error-msg {
+  font-size: 11.5px;
+  color: var(--error);
+  display: none;
+}
+
+#bms-form-wrap .bms-error-msg.bms-visible {
+  display: block;
+}
+
+#bms-form-wrap .bms-hint {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+#bms-form-wrap .bms-global-alert {
+  display: none;
+  background: var(--error-bg);
+  border: 1.5px solid #f1b0a8;
+  border-radius: var(--radius);
+  padding: 13px 16px;
+  color: var(--error);
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+#bms-form-wrap .bms-global-alert.bms-visible {
+  display: block;
+}
+
+#bms-form-wrap .btn-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+#bms-form-wrap .btn-submit {
+  flex: 1;
+  background: var(--primary) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: var(--radius) !important;
+  padding: 13px 24px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14.5px !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+  transition: background 0.2s;
+  letter-spacing: 0.2px;
+  width: auto !important;
+  max-width: none !important;
+}
+
+#bms-form-wrap .btn-submit:hover { background: #244a3a !important; }
+#bms-form-wrap .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+#bms-form-wrap .btn-reset {
+  background: transparent !important;
+  color: var(--muted) !important;
+  border: 1.5px solid var(--border) !important;
+  border-radius: var(--radius) !important;
+  padding: 13px 20px !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 14px !important;
+  cursor: pointer;
+  width: auto !important;
+}
+
+#bms-form-wrap .btn-reset:hover {
+  border-color: var(--muted) !important;
+  color: var(--text) !important;
+}
+
+@media (max-width: 520px) {
+  #bms-form-wrap form { padding: 20px 20px 32px; }
+  #bms-form-wrap .form-header { padding: 28px 20px 22px; }
+  #bms-form-wrap .row-2 { grid-template-columns: 1fr; }
+}
+</style>
+
+<div id="bms-form-wrap">
+  <div class="form-card">
+    <div class="form-header">
+      <h2>Inquiry Form</h2>
+      <p>Fill in your details and we'll get back to you shortly.</p>
+    </div>
+
+    <!-- 
+      KEY: onsubmit returns the result of bmsValidate().
+      If bmsValidate() returns false, the form WILL NOT submit — period.
+      This works even in WordPress because it is inline and does not rely
+      on addEventListener which can be overridden by themes/plugins.
+    -->
+    <form
+      id="bmsWebForm"
+      action="https://crmsandbox.zoho.in/crm/WebToLeadForm"
+      name="WebToLeads1308957000000591843"
+      method="POST"
+      accept-charset="UTF-8"
+      onsubmit="return bmsValidate()">
+
+      <!-- Hidden Zoho required fields — DO NOT REMOVE -->
+      <input type="text" style="display:none;" name="xnQsjsdp" value="0fe9a7cb2393f2d82b7794680e083010ab4089d4b7f1eac3da26588f4ffb549b">
+      <input type="hidden" name="zc_gad" id="zc_gad" value="">
+      <input type="text" style="display:none;" name="xmIwtLD" value="af8cf3220a6860a729ede17f5d0a7bf24d1ddf6d1829427d5f0f6734cadbdb96d90a1c87422669531c43485bd7b4d1eb">
+      <input type="text" style="display:none;" name="actionType" value="TGVhZHM=">
+      <input type="text" style="display:none;" name="returnURL" value="https://bmsfit.club/contact-us/">
+      <input type="text" style="display:none;" name="aG9uZXlwb3Q" value="">
+
+      <!-- Global alert banner -->
+      <div class="bms-global-alert" id="bmsGlobalAlert">
+        ⚠️ Please fill in all required fields before submitting.
+      </div>
+
+      <!-- ── PERSONAL INFORMATION ── -->
+      <div class="section-label">Personal Information</div>
+
+      <div class="row-2">
+        <div class="bms-field">
+          <label for="bms_First_Name">First Name <span class="req">*</span></label>
+          <input type="text" id="bms_First_Name" name="First Name" maxlength="40" placeholder="John">
+          <span class="bms-error-msg" id="bmserr_First_Name">First Name cannot be empty.</span>
+        </div>
+        <div class="bms-field">
+          <label for="bms_Last_Name">Last Name <span class="req">*</span></label>
+          <input type="text" id="bms_Last_Name" name="Last Name" maxlength="80" placeholder="Doe">
+          <span class="bms-error-msg" id="bmserr_Last_Name">Last Name cannot be empty.</span>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="bms-field">
+          <label for="bms_Phone">Phone <span class="req">*</span></label>
+          <input type="text" id="bms_Phone" name="Phone" maxlength="30" placeholder="+91 98765 43210">
+          <span class="bms-error-msg" id="bmserr_Phone">Phone cannot be empty.</span>
+        </div>
+        <div class="bms-field">
+          <label for="bms_Email">Email <span class="req">*</span></label>
+          <input type="text" id="bms_Email" name="Email" maxlength="100" placeholder="john@example.com">
+          <span class="bms-error-msg" id="bmserr_Email">Please enter a valid email address.</span>
+        </div>
+      </div>
+
+      <div class="row-2">
+        <div class="bms-field">
+          <label for="bms_Age">Age <span class="req">*</span></label>
+          <input type="text" id="bms_Age" name="No of Employees" maxlength="9" placeholder="e.g. 32">
+          <span class="bms-error-msg" id="bmserr_Age">Age cannot be empty.</span>
+        </div>
+        <div class="bms-field">
+          <label for="bms_Gender">Gender <span class="req">*</span></label>
+          <select id="bms_Gender" name="LEADCF3">
+            <option value="-None-">— Select —</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+          </select>
+          <span class="bms-error-msg" id="bmserr_Gender">Please select a Gender.</span>
+        </div>
+      </div>
+
+      <!-- ── HEALTH DETAILS ── -->
+      <div class="section-label">Health Details</div>
+
+      <div class="row-2">
+        <div class="bms-field">
+          <label for="bms_CW">Current Weight (Kg) <span class="req">*</span></label>
+          <input type="text" id="bms_CW" name="LEADCF51" maxlength="3" placeholder="e.g. 75">
+          <span class="bms-error-msg" id="bmserr_CW">Current Weight cannot be empty.</span>
+        </div>
+        <div class="bms-field">
+          <label for="bms_TW">Target Weight (Kg) <span class="req">*</span></label>
+          <input type="text" id="bms_TW" name="LEADCF52" maxlength="3" placeholder="e.g. 65">
+          <span class="bms-error-msg" id="bmserr_TW">Target Weight cannot be empty.</span>
+        </div>
+      </div>
+
+      <!-- ── LOCATION ── -->
+      <div class="section-label">Location</div>
+
+      <div class="bms-field">
+        <label for="bms_Country">Country / Region <span class="req">*</span></label>
+        <select id="bms_Country" name="Address - Country / Region">
+          <option value="-None-">— Select Country —</option>
+          <option>Afghanistan</option><option>Albania</option><option>Algeria</option><option>Andorra</option><option>Angola</option><option>Antigua and Barbuda</option><option>Argentina</option><option>Armenia</option><option>Australia</option><option>Austria</option><option>Azerbaijan</option><option>Bahamas</option><option>Bahrain</option><option>Bangladesh</option><option>Barbados</option><option>Belarus</option><option>Belgium</option><option>Belize</option><option>Benin</option><option>Bhutan</option><option>Bolivia</option><option>Bosnia and Herzegovina</option><option>Botswana</option><option>Brazil</option><option>Brunei</option><option>Bulgaria</option><option>Burkina Faso</option><option>Burundi</option><option>Cabo Verde</option><option>Cambodia</option><option>Cameroon</option><option>Canada</option><option>Central African Republic</option><option>Chad</option><option>Chile</option><option>China</option><option>Colombia</option><option>Comoros</option><option>Congo</option><option>Costa Rica</option><option>Croatia</option><option>Cuba</option><option>Cyprus</option><option>Czech Republic</option><option>Denmark</option><option>Djibouti</option><option>Dominica</option><option>Dominican Republic</option><option>Ecuador</option><option>Egypt</option><option>El Salvador</option><option>Equatorial Guinea</option><option>Eritrea</option><option>Estonia</option><option>Eswatini</option><option>Ethiopia</option><option>Fiji</option><option>Finland</option><option>France</option><option>Gabon</option><option>Gambia</option><option>Georgia</option><option>Germany</option><option>Ghana</option><option>Greece</option><option>Grenada</option><option>Guatemala</option><option>Guinea</option><option>Guinea-Bissau</option><option>Guyana</option><option>Haiti</option><option>Honduras</option><option>Hungary</option><option>Iceland</option><option selected>India</option><option>Indonesia</option><option>Iran</option><option>Iraq</option><option>Ireland</option><option>Israel</option><option>Italy</option><option>Jamaica</option><option>Japan</option><option>Jordan</option><option>Kazakhstan</option><option>Kenya</option><option>Kiribati</option><option>Kuwait</option><option>Kyrgyzstan</option><option>Laos</option><option>Latvia</option><option>Lebanon</option><option>Lesotho</option><option>Liberia</option><option>Libya</option><option>Liechtenstein</option><option>Lithuania</option><option>Luxembourg</option><option>Madagascar</option><option>Malawi</option><option>Malaysia</option><option>Maldives</option><option>Mali</option><option>Malta</option><option>Marshall Islands</option><option>Mauritania</option><option>Mauritius</option><option>Mexico</option><option>Micronesia</option><option>Moldova</option><option>Monaco</option><option>Mongolia</option><option>Montenegro</option><option>Morocco</option><option>Mozambique</option><option>Myanmar</option><option>Namibia</option><option>Nauru</option><option>Nepal</option><option>Netherlands</option><option>New Zealand</option><option>Nicaragua</option><option>Niger</option><option>Nigeria</option><option>North Korea</option><option>North Macedonia</option><option>Norway</option><option>Oman</option><option>Pakistan</option><option>Palau</option><option>Palestine</option><option>Panama</option><option>Papua New Guinea</option><option>Paraguay</option><option>Peru</option><option>Philippines</option><option>Poland</option><option>Portugal</option><option>Qatar</option><option>Romania</option><option>Russia</option><option>Rwanda</option><option>Saint Kitts and Nevis</option><option>Saint Lucia</option><option>Saint Vincent and the Grenadines</option><option>Samoa</option><option>San Marino</option><option>Sao Tome and Principe</option><option>Saudi Arabia</option><option>Senegal</option><option>Serbia</option><option>Seychelles</option><option>Sierra Leone</option><option>Singapore</option><option>Slovakia</option><option>Slovenia</option><option>Solomon Islands</option><option>Somalia</option><option>South Africa</option><option>South Korea</option><option>South Sudan</option><option>Spain</option><option>Sri Lanka</option><option>Sudan</option><option>Suriname</option><option>Sweden</option><option>Switzerland</option><option>Syria</option><option>Taiwan</option><option>Tajikistan</option><option>Tanzania</option><option>Thailand</option><option>Timor-Leste</option><option>Togo</option><option>Tonga</option><option>Trinidad and Tobago</option><option>Tunisia</option><option>Turkey</option><option>Turkmenistan</option><option>Tuvalu</option><option>Uganda</option><option>Ukraine</option><option>United Arab Emirates</option><option>United Kingdom</option><option>United States</option><option>Uruguay</option><option>Uzbekistan</option><option>Vanuatu</option><option>Vatican City</option><option>Venezuela</option><option>Vietnam</option><option>Yemen</option><option>Zambia</option><option>Zimbabwe</option>
+        </select>
+        <span class="bms-error-msg" id="bmserr_Country">Please select a Country / Region.</span>
+      </div>
+
+      <!-- ── ADDITIONAL INFO ── -->
+      <div class="section-label">Additional Information</div>
+
+      <div class="bms-field">
+        <label for="bms_LeadSource">How did you hear about us</label>
+        <select id="bms_LeadSource" name="Lead Source" onchange="bmsToggleLeadOther()">
+          <option value="-None-">— Select —</option>
+          <option value="Other">Other</option>
+          <option value="Suman TV Interview">Suman TV Interview</option>
+          <option value="Friend / Family Referral">Friend / Family Referral</option>
+          <option value="WhatsApp Message">WhatsApp Message</option>
+          <option value="Website">Website</option>
+          <option value="Instagram">Instagram</option>
+          <option value="Facebook">Facebook</option>
+          <option value="Google Search">Google Search</option>
+        </select>
+      </div>
+
+      <div class="bms-field bms-hidden" id="bmsField_LeadOther">
+        <label for="bms_LeadOther">Other Lead Source Details</label>
+        <input type="text" id="bms_LeadOther" name="LEADCF9" maxlength="255" placeholder="Please specify…">
+      </div>
+
+      <div class="bms-field">
+        <label for="bms_HealthConcern">Primary Health Concern</label>
+        <select id="bms_HealthConcern" name="LEADCF13" onchange="bmsToggleHealthOther()">
+          <option value="-None-">— Select —</option>
+          <option value="Insulin Resistance">Insulin Resistance</option>
+          <option value="Diabetes / Prediabetes">Diabetes / Prediabetes</option>
+          <option value="PCOD">PCOD</option>
+          <option value="Weight Loss">Weight Loss</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
+
+      <div class="bms-field bms-hidden" id="bmsField_HealthOther">
+        <label for="bms_HealthOther">Others — please specify</label>
+        <input type="text" id="bms_HealthOther" name="LEADCF11" maxlength="15" placeholder="Please specify…">
+      </div>
+
+      <div class="bms-field">
+        <label for="bms_Medical">Current Medical Conditions</label>
+        <span class="bms-hint">Hold Ctrl / Cmd to select multiple</span>
+        <select id="bms_Medical" name="LEADCF10" multiple onchange="bmsToggleMedicalOther()">
+          <option value="None">None</option>
+          <option value="Insulin Resistance">Insulin Resistance</option>
+          <option value="Type 2 Diabetes">Type 2 Diabetes</option>
+          <option value="Prediabetes">Prediabetes</option>
+          <option value="PCOS">PCOS</option>
+          <option value="Thyroid Disorder">Thyroid Disorder</option>
+          <option value="High Blood Pressure">High Blood Pressure</option>
+          <option value="High Cholesterol">High Cholesterol</option>
+          <option value="Fatty Liver">Fatty Liver</option>
+          <option value="Joint Pain">Joint Pain</option>
+          <option value="Sleep Issues">Sleep Issues</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="bms-field bms-hidden" id="bmsField_MedicalOther">
+        <label for="bms_MedicalOther">Others — please specify</label>
+        <input type="text" id="bms_MedicalOther" name="LEADCF12" maxlength="15" placeholder="Please specify…">
+      </div>
+
+      <div class="bms-field">
+        <label for="bms_ContactTime">Preferred Contact Time (IST) <span class="req">*</span></label>
+        <select id="bms_ContactTime" name="LEADCF2">
+          <option value="-None-">— Select —</option>
+          <option value="Morning">Morning</option>
+          <option value="Afternoon">Afternoon</option>
+          <option value="Evening">Evening</option>
+          <option value="Any">Any</option>
+        </select>
+        <span class="bms-error-msg" id="bmserr_ContactTime">Please select a Preferred Contact Time.</span>
+      </div>
+
+      <div class="btn-row">
+        <input type="submit" id="bmsSubmitBtn" class="btn-submit" value="Submit">
+        <input type="reset" class="btn-reset" value="Reset" onclick="bmsResetForm()">
+      </div>
+
+    </form>
+  </div>
+</div>
+
+<!-- Zoho analytics — DO NOT REMOVE -->
+<!-- Zoho WebFormDependencies removed: it bypasses custom validation by making direct XHR calls -->
+<script id="wf_anal" src="https://crm.zohopublic.in/crm/WebFormAnalyticsServeServlet?rid=c85ab9c2721c26190aa44aa53b3d37c468d5e0115f7a00deda8473f588296381b5296de970af2b995f40e0f09c9499f8giddbdac65a276c88d5b10e3a5b13ac96cc25d59afb886555c3ed34864316b571b1gid6f3a440b4f01ea280ef802707de1849a2793aec3539bbedf49a5d12bdb6ab1f9gidf50f5345f44d759bc411084bf672f39a083e503ff22bcbc7cfbb833051d62353&tw=015880a079c9aac37ec38c0d04a3c3965c763dec6c5f4187c4a3d4b45b32e6d5"></script>
+
+<script>
+/* =====================================================
+   BMS FIT — FORM VALIDATION & CONDITIONAL LOGIC
+   Hardened for WordPress + Zoho CRM compatibility.
+===================================================== */
+
+var bmsMandatory = [
+  { id: 'bms_First_Name',  label: 'First Name',                   type: 'text'   },
+  { id: 'bms_Last_Name',   label: 'Last Name',                    type: 'text'   },
+  { id: 'bms_Phone',       label: 'Phone',                        type: 'text'   },
+  { id: 'bms_Email',       label: 'Email',                        type: 'email'  },
+  { id: 'bms_Age',         label: 'Age',                          type: 'text'   },
+  { id: 'bms_Gender',      label: 'Gender',                       type: 'select' },
+  { id: 'bms_CW',          label: 'Current Weight (Kg)',          type: 'text'   },
+  { id: 'bms_TW',          label: 'Target Weight (Kg)',           type: 'text'   },
+  { id: 'bms_Country',     label: 'Country / Region',             type: 'select' },
+  { id: 'bms_ContactTime', label: 'Preferred Contact Time (IST)', type: 'select' },
+];
+
+var bmsErrMap = {
+  'bms_First_Name':  'bmserr_First_Name',
+  'bms_Last_Name':   'bmserr_Last_Name',
+  'bms_Phone':       'bmserr_Phone',
+  'bms_Email':       'bmserr_Email',
+  'bms_Age':         'bmserr_Age',
+  'bms_Gender':      'bmserr_Gender',
+  'bms_CW':          'bmserr_CW',
+  'bms_TW':          'bmserr_TW',
+  'bms_Country':     'bmserr_Country',
+  'bms_ContactTime': 'bmserr_ContactTime',
+};
+
+function bmsEmailValid(v) {
+  var at = v.indexOf('@'), dot = v.lastIndexOf('.');
+  return at > 0 && dot > at + 1 && dot + 2 < v.length;
+}
+
+function bmsSetError(id, msg) {
+  var el = document.getElementById(id);
+  var er = document.getElementById(bmsErrMap[id]);
+  if (el) el.classList.add('bms-invalid');
+  if (er) { if (msg) er.textContent = msg; er.classList.add('bms-visible'); }
+}
+
+function bmsClearError(id) {
+  var el = document.getElementById(id);
+  var er = bmsErrMap[id] ? document.getElementById(bmsErrMap[id]) : null;
+  if (el) el.classList.remove('bms-invalid');
+  if (er) er.classList.remove('bms-visible');
+}
+
+/* Returns true if valid, false if not */
+function bmsRunValidation() {
+  for (var i = 0; i < bmsMandatory.length; i++) bmsClearError(bmsMandatory[i].id);
+  document.getElementById('bmsGlobalAlert').classList.remove('bms-visible');
+
+  var hasError = false, firstEl = null;
+
+  for (var i = 0; i < bmsMandatory.length; i++) {
+    var f  = bmsMandatory[i];
+    var el = document.getElementById(f.id);
+    if (!el) continue;
+    var v  = (el.value || '').trim();
+
+    if (f.type === 'select') {
+      if (v === '-None-' || v === '') {
+        bmsSetError(f.id, 'Please select ' + f.label + '.');
+        if (!firstEl) firstEl = el;
+        hasError = true;
+      }
+    } else if (f.type === 'email') {
+      if (v === '') {
+        bmsSetError(f.id, 'Email cannot be empty.');
+        if (!firstEl) firstEl = el;
+        hasError = true;
+      } else if (!bmsEmailValid(v)) {
+        bmsSetError(f.id, 'Please enter a valid email address.');
+        if (!firstEl) firstEl = el;
+        hasError = true;
+      }
+    } else {
+      if (v === '') {
+        bmsSetError(f.id, f.label + ' cannot be empty.');
+        if (!firstEl) firstEl = el;
+        hasError = true;
+      }
+    }
+  }
+
+  if (hasError) {
+    document.getElementById('bmsGlobalAlert').classList.add('bms-visible');
+    if (firstEl) { firstEl.focus(); firstEl.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+    return false;
+  }
+  return true;
+}
+
+/* Called by inline onsubmit — keep this for browsers that honour it */
+function bmsValidate() {
+  var ok = bmsRunValidation();
+  if (ok) {
+    var btn = document.getElementById('bmsSubmitBtn');
+    if (btn) btn.disabled = true;
+  }
+  return ok;
+}
+
+/* ── CONDITIONAL SHOW / HIDE ── */
+function bmsToggleLeadOther() {
+  var v = document.getElementById('bms_LeadSource').value;
+  var f = document.getElementById('bmsField_LeadOther');
+  if (v === 'Other') { f.classList.remove('bms-hidden'); }
+  else { f.classList.add('bms-hidden'); document.getElementById('bms_LeadOther').value = ''; }
+}
+function bmsToggleHealthOther() {
+  var v = document.getElementById('bms_HealthConcern').value;
+  var f = document.getElementById('bmsField_HealthOther');
+  if (v === 'Others') { f.classList.remove('bms-hidden'); }
+  else { f.classList.add('bms-hidden'); document.getElementById('bms_HealthOther').value = ''; }
+}
+function bmsToggleMedicalOther() {
+  var sel = document.getElementById('bms_Medical');
+  var has = false;
+  for (var i = 0; i < sel.options.length; i++) {
+    if (sel.options[i].selected && sel.options[i].value === 'Other') { has = true; break; }
+  }
+  var f = document.getElementById('bmsField_MedicalOther');
+  if (has) { f.classList.remove('bms-hidden'); }
+  else { f.classList.add('bms-hidden'); document.getElementById('bms_MedicalOther').value = ''; }
+}
+
+/* ── RESET ── */
+function bmsResetForm() {
+  for (var i = 0; i < bmsMandatory.length; i++) bmsClearError(bmsMandatory[i].id);
+  document.getElementById('bmsGlobalAlert').classList.remove('bms-visible');
+  document.getElementById('bmsField_LeadOther').classList.add('bms-hidden');
+  document.getElementById('bmsField_HealthOther').classList.add('bms-hidden');
+  document.getElementById('bmsField_MedicalOther').classList.add('bms-hidden');
+  var btn = document.getElementById('bmsSubmitBtn');
+  if (btn) btn.disabled = false;
+}
+
+/* ── TRIPLE-LOCK SUBMIT PREVENTION ──
+   Lock 1: onsubmit="return bmsValidate()" on the <form> tag (inline, always first)
+   Lock 2: capture-phase addEventListener (fires before ALL bubble listeners including Zoho)
+   Lock 3: Submit button onclick guard
+   Lock 4: Nuke the form action until validation passes (nuclear option)
+*/
+(function() {
+  var REAL_ACTION = 'https://crmsandbox.zoho.in/crm/WebToLeadForm';
+
+  function init() {
+    var form = document.getElementById('bmsWebForm');
+    var btn  = document.getElementById('bmsSubmitBtn');
+    if (!form) return;
+
+    /* Lock 4: Remove the real action so even a raw .submit() call goes nowhere */
+    form.removeAttribute('action');
+    form.setAttribute('data-action', REAL_ACTION);
+
+    /* Lock 2: Capture-phase listener — runs before everything */
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      var ok = bmsRunValidation();
+      if (ok) {
+        /* Restore action and truly submit */
+        form.setAttribute('action', REAL_ACTION);
+        if (btn) btn.disabled = true;
+        form.submit(); /* native submit — bypasses all JS listeners */
+      }
+    }, true);
+
+    /* Lock 3: Button onclick as extra guard */
+    if (btn) {
+      btn.addEventListener('click', function(e) {
+        /* Let the form submit event handle it; just ensure action is gone if invalid */
+        if (!bmsRunValidation()) {
+          e.preventDefault();
+          form.removeAttribute('action');
+        }
+      });
+    }
+
+    /* Live error clearing */
+    for (var i = 0; i < bmsMandatory.length; i++) {
+      (function(fid) {
+        var el = document.getElementById(fid);
+        if (!el) return;
+        el.addEventListener('input',  function() { bmsClearError(fid); });
+        el.addEventListener('change', function() { bmsClearError(fid); });
+      })(bmsMandatory[i].id);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  /* Re-run after full page load in case Zoho scripts mutate the form */
+  window.addEventListener('load', function() {
+    var form = document.getElementById('bmsWebForm');
+    if (form && form.getAttribute('action') === REAL_ACTION) {
+      /* Zoho script re-added the action — strip it again */
+      form.removeAttribute('action');
+      form.setAttribute('data-action', REAL_ACTION);
+    }
+  });
+})();
+</script>
